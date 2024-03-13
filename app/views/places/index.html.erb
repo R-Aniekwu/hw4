@@ -2,8 +2,13 @@
 
   <div class="row">
     <% for place in @places %>
-      <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
-    <% end %>
+      <div class="col-sm-6 col-md-3">
+        <a href="/places/<%= place["id"] %>"><%= place["name"] %></a>
+      </div>
+
+      <% if post.uploaded_image.attached? %>
+        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+      <% end %> 
   </div>
   
   <div class="row">
